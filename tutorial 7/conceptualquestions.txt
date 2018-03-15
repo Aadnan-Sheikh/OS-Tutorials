@@ -1,0 +1,26 @@
+Tutorial 7
+
+Conceptual Questions
+
+1. Signals are messages sent by the operating to processes to interrupt, terminate, resume execution of processes as well as a slew of other functionalities like getting information on process state and the like.
+
+2.
+SIGINT – interrupts and terminates a process
+SIGTSTP – stops process execution
+SIGCONT – resumes process execution
+
+3.
+kill(pid_t pid,int signal) is used to send “signal” to the process with pid. The signals have predefined macros like SIGINT and SIGTSTP. kill() doesn't necessarily terminate processes so the name is a misnomer.
+
+4.
+A linked-list is a data structure composed of dynamically allocated elements such as structs in c or objects in c++, which point to each other with pointers defined in the structs/classes. FIFO stands for “first-in-first-out” meaning that the first element put into the list is also the first element to be removed, much like a queue at a fast food restaurant. The common operations a linked list must have are pointers on each node pointing to either the succeeding or preceding (or both) element in the list. Other common operations are the location of the head element and/or the tail element. There should be functions to help with iterating through elements in the linked-list.
+
+5.
+The structure of a linked list implemented in C would be as follows:
+A struct that acts as nodes with:
+data (either of primitive types or of other structs) and
+pointer to another node
+a linked list is a bunch of these objects that are “linked” together with the pointer in each node.
+To add values to a queue, we create a conditional loop that goes through the list element by element until it reaches the final element, whose pointer points to NULL. We then set the pointer to point to a newly allocated node using malloc(), whose pointer will then point to NULL.
+
+To remove values from a queue, we return the first element, or the “head”, then we create a temporary ptr to the next element after the head, free the memory used by head, then set the head to the temporary pointer.
